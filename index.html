@@ -50,14 +50,12 @@ iframe {
 
 <h1>Do you want to have a drink?</h1>
 
-<!-- Instagram Embed -->
+<!-- Google Drive Video Embed -->
 <iframe 
-  src="https://www.instagram.com/reel/DKLr17qTGJ-/embed" 
+  src="https://drive.google.com/file/d/1TnwA0m817zSN8kaXl0Pl1xVh27y1i1oc/preview"
   width="320" 
-  height="400" 
-  frameborder="0"
-  scrolling="no"
-  allowtransparency="true">
+  height="400"
+  allow="autoplay">
 </iframe>
 
 <div class="buttons">
@@ -74,8 +72,8 @@ const sadTexts = [
     "No",
     "Are you sure? 😢",
     "Really sure? 🥺",
-    "Don't be like that... 😭",
-    "I’ll be sad... 💔",
+    "Don't do this... 😭",
+    "I will be sad... 💔",
     "Last chance... 😞"
 ];
 
@@ -84,7 +82,12 @@ noBtn.addEventListener("click", function() {
 
     if (noClickCount <= 5) {
         noBtn.innerText = sadTexts[noClickCount];
-        yesBtn.style.transform = `scale(${1 + noClickCount * 0.2})`;
+
+        // YES button gets bigger
+        yesBtn.style.transform = `scale(${1 + noClickCount * 0.3})`;
+
+        // NO button gets smaller
+        noBtn.style.transform = `scale(${1 - noClickCount * 0.1})`;
     }
 
     if (noClickCount >= 5) {
