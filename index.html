@@ -7,7 +7,7 @@
 body {
   margin: 0;
   padding: 0;
-  background: #fff;
+  background: #ffeef2; /* Pink background */
   font-family: Arial, sans-serif;
   text-align: center;
 }
@@ -16,10 +16,10 @@ body {
   margin-top: 20px;
 }
 
-iframe {
+video {
   width: 420px;
   height: 320px;
-  border: none;
+  border-radius: 12px;
 }
 
 .buttons {
@@ -50,11 +50,12 @@ button {
 <body>
 
 <div class="container">
-  <iframe
-    src="https://drive.google.com/file/d/1TnwA0m817zSN8kaXl0Pl1xVh27y1i1oc/preview?autoplay=1&mute=1"
-    allow="autoplay"
-    allowfullscreen>
-  </iframe>
+  <h1>Do you want to have a drink?</h1>
+
+  <!-- Use your uploaded video file -->
+  <video id="video" autoplay muted loop>
+    <source src="Video Project.mp4" type="video/mp4">
+  </video>
 
   <div class="buttons">
     <button id="yesBtn">Yes 💕</button>
