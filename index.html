@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Have a Drink?</title>
+<style>
+body {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    background-color: #ffeef2;
+}
+
+h1 {
+    margin-top: 30px;
+}
+
+.buttons {
+    margin-top: 20px;
+    position: relative;
+    height: 200px;
+}
+
+button {
+    padding: 12px 25px;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 8px;
+    border: none;
+    transition: 0.3s;
+}
+
+#yesBtn {
+    background-color: #ff6b81;
+    color: white;
+}
+
+#noBtn {
+    background-color: #cccccc;
+    margin-left: 20px;
+    position: absolute;
+}
+
+iframe {
+    margin-top: 30px;
+    border-radius: 12px;
+}
+</style>
+</head>
+<body>
+
+<h1>Do you want to have a drink?</h1>
+
+<!-- Instagram Embed -->
+<iframe 
+  src="https://www.instagram.com/reel/DKLr17qTGJ-/embed" 
+  width="320" 
+  height="400" 
+  frameborder="0"
+  scrolling="no"
+  allowtransparency="true">
+</iframe>
+
+<div class="buttons">
+    <button id="yesBtn">Yes 💕</button>
+    <button id="noBtn">No</button>
+</div>
+
+<script>
+let noClickCount = 0;
+const noBtn = document.getElementById("noBtn");
+const yesBtn = document.getElementById("yesBtn");
+
+const sadTexts = [
+    "No",
+    "Are you sure? 😢",
+    "Really sure? 🥺",
+    "Don't be like that... 😭",
+    "I’ll be sad... 💔",
+    "Last chance... 😞"
+];
+
+noBtn.addEventListener("click", function() {
+    noClickCount++;
+
+    if (noClickCount <= 5) {
+        noBtn.innerText = sadTexts[noClickCount];
+        yesBtn.style.transform = `scale(${1 + noClickCount * 0.2})`;
+    }
+
+    if (noClickCount >= 5) {
+        noBtn.addEventListener("mouseover", moveButton);
+    }
+});
+
+function moveButton() {
+    const x = Math.random() * 300;
+    const y = Math.random() * 150;
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+}
+
+yesBtn.addEventListener("click", function() {
+    alert("Yayyy! Let’s go have a drink together! 🥤💕");
+});
+</script>
+
+</body>
+</html>
